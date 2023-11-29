@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <script>
+            function printArray(array)
+            {
+                for(let index in array){
+                    document.write(array[index]);
+                    document.write("<br>");
+                }
+            }
+           
+            let auditArray = [["Математика",11,"Технический"],["Украинский язык",15,"Филологический"],["Физика",20,"Технический"]]
+            printArray(auditArray);
+            document.write("<br><br>");
+
+            function forEachFaculty(array, faculty) {
+                for (let index in array) {
+                    if (array[index].some(element => element == faculty)) {
+                        document.write(array[index]);
+                        document.write("<br>");
+                    }
+                }
+            }
+            forEachFaculty(auditArray,"Технический");
+            document.write("<br><br>");
+
+            function forEachGroup(array,group){
+                for(let index in array)
+                {
+                    if(array[index][1]>=group[1] && array[index][2]==group[2])
+                    {
+                        document.write(array[index]);
+                        document.write("<br>");
+                    }
+                }
+            }
+            let group = ["КН-222",13, "Технический"];
+            forEachGroup(auditArray,group);
+            document.write("<br><br>");
+
+            function sortCondition1(a, b) {
+                return b[1]-a[1];
+            }   
+            auditArray.sort(sortCondition1);
+            printArray(auditArray);
+            document.write("<br><br>");
+
+
+            function sortCondition2(a,b){
+                return b[0].localeCompare(a[0]);
+            }
+            auditArray.sort(sortCondition2);
+            printArray(auditArray);
+        </script>
+    </body>
+</html>
